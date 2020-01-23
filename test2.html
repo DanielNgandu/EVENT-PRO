@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+
+    <style>
+        * { font-family:Arial; }
+        a { color:#999; text-decoration: none; }
+        a:hover { color:#802727; }
+
+    </style>
+    <script>
+    $(document).ready(function() {
+
+    var MaxInputs       = 10; //maximum extra input boxes allowed
+    var InputsWrapper   = $("#InputsWrapper"); //Input boxes wrapper ID
+    var AddButton       = $("#AddMoreFileBox"); //Add button ID
+
+    var x = InputsWrapper.length; //initlal text box count
+    var FieldCount=1; //to keep track of text box added
+
+    //on add input button click
+    $(AddButton).click(function (e) {
+    //max input box allowed
+    if(x <= MaxInputs) {
+    FieldCount++; //text box added ncrement
+    //add input box
+
+    $(InputsWrapper).append('     <div>   ' +
+        '<div class="col-md-12">\n' +
+        '            <div class="form-group row">\n' +
+        '                <div class="col-sm-9"><select class="js-example-tags" name="mytext[]" id="field_'+ FieldCount +'"> <option value="AL">Alabama</option>\n' +
+        '                        <option value="WY">Wyoming</option>\n' +
+        '                    </select>' +
+        '<a href="#" class="removeclass">Remove</a>   </div>\n' +
+        '                <div class="col-sm-5 messages"></div>\n' +
+        '            </div>\n' +
+        '        </div>' +
+        '</div>');
+    x++; //text box increment
+
+    $("#AddMoreFileId").show();
+
+    $('AddMoreFileBox').html("Add field");
+
+    // Delete the "add"-link if there is 3 fields.
+    if(x == 10) {
+    $("#AddMoreFileId").hide();
+    $("#lineBreak").html("<br>");
+    }
+    }
+    return false;
+    });
+
+    $("body").on("click",".removeclass", function(e){ //user click on remove text
+    if( x > 1 ) {
+    $(this).parent('div').remove(); //remove text box
+    x--; //decrement textbox
+
+    $("#AddMoreFileId").show();
+
+    $("#lineBreak").html("");
+
+    // Adds the "add" link again when a field is removed.
+    $('AddMoreFileBox').html("Add field");
+    }
+    return false;
+    })
+
+    });
+</script>
+</head>
+<body>
+<div class="container">
+<form action="" method="post">
+    <!--<div id="InputsWrapper">-->
+        <!--&lt;!&ndash;<div><input type="text" name="mytext[]" id="field_1" value=""><a href="#" class="removeclass"></a></div>&ndash;&gt;-->
+    <!--</div>-->
+
+    <div class="row" id="InputsWrapper">
+        <a href="#" class="removeclass">Remove</a>
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Event Ticket Prices<small> (required)</small></label>
+                <div class="col-sm-9">
+                    <select class="js-example-tags" name="mytext[]" id="field_1" value=""><a href="#" class="removeclass"></a>
+                        <option value="AL">Alabama</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </div>
+                <div class="col-sm-5 messages"></div>
+            </div>
+        </div>
+
+    </div>
+    <div id="AddMoreFileId">
+        <a href="#" id="AddMoreFileBox" class="btn btn-info">Add field</a><br><br>
+    </div>
+    <div id="lineBreak"></div>
+    <input type="submit" id="submit" name="send" value="Send">
+
+
+</form>
+</div>
+<div id="AddMoreScripts" class="AddMoreScripts">
+    <script>
+        // In your Javascript (external .js resource or <script> tag)
+        $(".js-example-tags").select2({
+            tags: true
+        });
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+
+</head>
+<body>
+
+
+<div class="container">
+
+    <form class="form-sample" action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" name="myForm" id="main" method="post">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-6 col-form-label">First Name<small> (required)</small></label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="first_name" placeholder="Firstname" name="first_name" required="required">
+                    </div>
+                    <div class="col-sm-5 messages"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-6 col-form-label">Last Name<small> (required)</small></label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="last_name" placeholder="Lastname" name="last_name" required="required">
+                    </div>
+                    <div class="col-sm-5 messages"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-6 col-form-label">Email<small> (optional)</small></label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="email" placeholder="Email" name="email" required="required">
+                    </div>
+                    <div class="col-sm-5 messages"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-6 col-form-label">Phone Number<small> (required)</small></label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="phone_number" placeholder="Phone Number" name="phone_number" required="required">
+                    </div>
+                    <div class="col-sm-5 messages"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-6 col-form-label">Event Title<small> (required)</small></label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="event_title" placeholder="Event Title" name="event_title" required="required">
+                    </div>
+                    <div class="col-sm-5 messages"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-6 col-form-label">Event Description<small> (required)</small></label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="event_desc" placeholder="Event Description" name="event_desc" required="required">
+                    </div>
+                    <div class="col-sm-5 messages"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+
+                    <div class="input-group">
+                        <label for="email">Ticket Type 1 <small> (required)</small>: </label>
+
+                        <select class="js-example-tags"  style="width: 25%">
+                            <option value="AL">Alabama</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id=""> K </span>
+                        </div>
+                        <input type="text" class="form-control" >
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+
+                    <div class="input-group">
+                        <label for="email">Ticket Type 2 <small> (Optional)</small>: </label>
+
+                        <select class="js-example-tags"  style="width: 25%">
+                            <option value="AL">Alabama</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id=""> K </span>
+                        </div>
+                        <input type="text" class="form-control" >
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+
+                    <div class="input-group">
+                        <label for="email">Ticket Type 3<small> (Optional)</small>: </label>
+
+                        <select class="js-example-tags"  style="width: 25%">
+                            <option value="AL">Alabama</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id=""> K </span>
+                        </div>
+                        <input type="text" class="form-control" >
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                // In your Javascript (external .js resource or <script> tag)
+                $(".js-example-tags").select2({
+                    tags: true
+                });
+            </script>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label class="col-sm-6 col-form-label">Event Venue/Location<small> (required)</small></label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="event_venue" placeholder="Event Location" name="event_venue" required="required">
+                    </div>
+                    <div class="col-sm-5 messages"></div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-info btn-md" name="add_event_btn">Schedule</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
